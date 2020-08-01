@@ -10,6 +10,10 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
+  "devDependencies": {
+    "gitmoji-cli": "^3.2.6",
+    "husky": "^4.2.5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -30,5 +34,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && gitmoji --hook $HUSKY_GIT_PARAMS || true"
+    }
   }
 }
