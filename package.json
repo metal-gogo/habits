@@ -39,9 +39,6 @@
     "lint:scss": "stylelint 'src/**/*.scss'",
     "lint:scss-fix": "stylelint 'src/**/*.scss' --fix"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
