@@ -6,19 +6,38 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "node-sass": "^4.14.0",
     "react": "^16.13.1",
+    "react-app-rewired": "^2.1.6",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "stylelint-webpack-plugin": "^2.1.0"
   },
   "devDependencies": {
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "gitmoji-cli": "^3.2.6",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-sass-guidelines": "^7.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "lint": "yarn lint:js && yarn lint:scss",
+    "lint:fix": "yarn lint:js-fix && yarn lint:scss-fix",
+    "lint:js": "eslint --ext .js --ignore-path .eslintignore .",
+    "lint:js-fix": "eslint --ext .js --ignore-path .eslintignore . --fix",
+    "lint:scss": "stylelint 'src/**/*.scss'",
+    "lint:scss-fix": "stylelint 'src/**/*.scss' --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,8 +54,14 @@
       "last 1 safari version"
     ]
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
+      "pre-commit": "lint-staged",
       "prepare-commit-msg": "exec < /dev/tty && gitmoji --hook $HUSKY_GIT_PARAMS || true"
     }
   }
