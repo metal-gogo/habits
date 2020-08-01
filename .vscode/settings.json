@@ -1,0 +1,15 @@
+{
+  "eslint.validate": ["javascript", "javascriptreact"],
+  "eslint.alwaysShowStatus": true,
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}
