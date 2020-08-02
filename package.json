@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
+    "@testing-library/jest-dom": "^5.11.2",
+    "@testing-library/react": "^10.4.7",
+    "@testing-library/user-event": "^12.1.0",
     "node-sass": "^4.14.0",
     "react": "^16.13.1",
     "react-app-rewired": "^2.1.6",
@@ -21,6 +21,7 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "gitmoji-cli": "^3.2.6",
     "husky": "^4.2.5",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "stylelint": "^13.6.1",
@@ -30,14 +31,17 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "lint": "yarn lint:js && yarn lint:scss",
-    "lint:fix": "yarn lint:js-fix && yarn lint:scss-fix",
+    "lint-fix": "yarn lint:js-fix && yarn lint:scss-fix",
     "lint:js": "eslint --ext .js --ignore-path .eslintignore .",
     "lint:js-fix": "eslint --ext .js --ignore-path .eslintignore . --fix",
     "lint:scss": "stylelint 'src/**/*.scss'",
-    "lint:scss-fix": "stylelint 'src/**/*.scss' --fix"
+    "lint:scss-fix": "stylelint 'src/**/*.scss' --fix",
+    "test": "react-app-rewired test --watchAll=false --verbose --env=jest-environment-jsdom-sixteen",
+    "test:watch": "react-app-rewired test --env=jest-environment-jsdom-sixteen",
+    "test:coverage": "react-app-rewired test --watchAll=false --coverage --env=jest-environment-jsdom-sixteen",
+    "test:debug": "react-app-rewired --inspect-brk test --runInBand --no-cache"
   },
   "browserslist": {
     "production": [
