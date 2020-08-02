@@ -137,7 +137,7 @@ It's important to mention that the wrapper tag is not defined under this convent
 
 <!-- Links references -->
 
-[jest]: https://facebook.github.io/react-native/docs/testing
+[jest]: https://jestjs.io/
 [tdd]: https://medium.freecodecamp.org/test-driven-development-what-it-is-and-what-it-is-not-41fa6bca02a2
 [react_testing_library_repo]: https://github.com/testing-library/react-testing-library
 [react_testing_library_intro]: https://testing-library.com/docs/react-testing-library/intro

@@ -172,7 +172,7 @@ For a more detailed explanation of our testing conventions, please read our [tes
 [airbnb_eslint]: https://github.com/airbnb/javascript/tree/master/react
 [stylelint]: https://stylelint.io/
 [prettier]: https://prettier.io/
-[jest]: https://facebook.github.io/react-native/docs/testing
+[jest]: https://jestjs.io/
 [react-testing-library]: https://testing-library.com/
 [editorconfig_instructions]: https://editorconfig.org/#download
 [eslint_vscode_extension]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
