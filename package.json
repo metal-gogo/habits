@@ -41,7 +41,9 @@
     "test": "react-app-rewired test --watchAll=false --verbose --env=jest-environment-jsdom-sixteen",
     "test:watch": "react-app-rewired test --env=jest-environment-jsdom-sixteen",
     "test:coverage": "react-app-rewired test --watchAll=false --coverage --env=jest-environment-jsdom-sixteen",
-    "test:debug": "react-app-rewired --inspect-brk test --runInBand --no-cache"
+    "test:debug": "react-app-rewired --inspect-brk test --runInBand --no-cache",
+    "deploy:dev": "yarn build && firebase deploy --only hosting:dev",
+    "deploy:staging": "yarn build && firebase deploy --only hosting:qa"
   },
   "browserslist": {
     "production": [

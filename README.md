@@ -18,6 +18,12 @@
   - [Testing](#testing)
     - [Filename Conventions](#filename-conventions)
     - [Running our tests](#running-our-tests)
+  - [Deployments](#deployments)
+    - [Setup Firebase](#setup-firebase)
+    - [Deploying to Dev](#deploying-to-dev)
+    - [Deploying to Staging](#deploying-to-staging)
+  - [How to contribute](#how-to-contribute)
+      - [TL;DR](#tldr)
 
 ## Tech stack
 
@@ -27,6 +33,7 @@
 - **Linting**: We are using [eslint][eslint] to lint our code. Eslint is a pluggable linting utility for JavaScript to keep our codebase written consistently. We are extending from [Airbnb configuration][airbnb_eslint]. We are also using [stylelint][stylelint], which is a mighty, modern linter that helps us avoid errors and enforce conventions in our styles.
 - **Code formatter**: In order to keep our codebase written consistently, and reducing the feedback loop for linting errors we are using [Prettier][prettier] as our code formatter. Prettier is an opinionated code formatter with support for JavaScript, CSS and JSON. With Prettier you can format the code you write automatically to ensure a code style within your project.
 - **Testing**: We require to have great code coverage with meaningful tests. As we are using Create React App, and most of our code will be written with JavasSript, we are usign [Jest][jest] as our testing framework. We are also using [React Testing Library][react-testing-library] to help us test the UI components.
+- **Deployments**: We will be using [Firebase hosting][firebase-hosting] for `dev`, and `staging`.
 
 ## Development Tools Setup
 
@@ -161,6 +168,38 @@ This will start running your Jest tests, but pause before executing to allow a d
 
 For a more detailed explanation of our testing conventions, please read our [testing guidelines](/docs/testing.md).
 
+## Deployments
+
+### Setup Firebase
+
+Make sure to be have access to the Firebase project. If you don't have access, and want to collaborate, please reach the administrator of this project.
+
+1. Install Firebase CLI:
+   `npm install -g firebase-tools`
+2. Login into Firebase:
+   `firebase login`
+
+We will be using [Firebase hosting][firebase-hosting] for `dev`, and `qa`.
+
+### Deploying to Dev
+
+To deploy the project to the `dev` environment just run the command `yarn deploy:dev`.
+
+### Deploying to Staging
+
+To deploy the project to the `staging` environment just run the command `yarn deploy:staging`.
+
+## How to contribute
+
+Please read through our [contributing guidelines](/docs/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
+
+#### TL;DR
+
+1. We use **git-flow** to create new features. For further information read this [guide](git_flow).
+2. Create a [Pull Request][pull_requests] and assign a relevant reviewer.
+3. Fix pull request comments (when necessary).
+4. Finish your feature with `git flow feature finish <feature_branch>` and push to the `develop` branch.
+
 <!-- Links references -->
 
 [git]: https://git-scm.com/
@@ -174,6 +213,7 @@ For a more detailed explanation of our testing conventions, please read our [tes
 [prettier]: https://prettier.io/
 [jest]: https://jestjs.io/
 [react-testing-library]: https://testing-library.com/
+[firebase-hosting]: https://firebase.google.com/docs/hosting
 [editorconfig_instructions]: https://editorconfig.org/#download
 [eslint_vscode_extension]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 [debbuger_for_chrome]: https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome

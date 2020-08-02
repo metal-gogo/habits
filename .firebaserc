@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "habits": "gogos-habits"
+  },
+  "targets": {
+    "gogos-habits": {
+      "hosting": {
+        "dev": [
+          "habits-dev"
+        ],
+        "qa": [
+          "habits-qa"
+        ]
+      }
+    }
+  }
+}
