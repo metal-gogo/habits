@@ -1,13 +1,14 @@
 import firebase from './firebase';
-import firebaseConfig from './config';
+import config from './config';
 
 // Initialize Firebase
 // Check if we have already initialized an app
 const firebaseApp = !firebase.apps.length
-  ? firebase.initializeApp(firebaseConfig)
+  ? firebase.initializeApp(config)
   : firebase.app();
 
+const firebaseAuth = firebase.auth;
 const firebaseDB = firebase.firestore();
 
-export { firebaseApp, firebaseDB };
+export { firebaseApp, firebaseAuth, firebaseDB };
 export default firebase;
