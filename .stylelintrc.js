@@ -16,6 +16,7 @@ module.exports = {
         "ignore": [ "attribute" ]
       }
     ],
-    "string-quotes": "double"
+    "string-quotes": "double",
+    "max-nesting-depth": 2,
   }
 }
