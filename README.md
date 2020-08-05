@@ -33,6 +33,7 @@
 - **Linting**: We are using [eslint][eslint] to lint our code. Eslint is a pluggable linting utility for JavaScript to keep our codebase written consistently. We are extending from [Airbnb configuration][airbnb_eslint]. We are also using [stylelint][stylelint], which is a mighty, modern linter that helps us avoid errors and enforce conventions in our styles.
 - **Code formatter**: In order to keep our codebase written consistently, and reducing the feedback loop for linting errors we are using [Prettier][prettier] as our code formatter. Prettier is an opinionated code formatter with support for JavaScript, CSS and JSON. With Prettier you can format the code you write automatically to ensure a code style within your project.
 - **Testing**: We require to have great code coverage with meaningful tests. As we are using Create React App, and most of our code will be written with JavasSript, we are usign [Jest][jest] as our testing framework. We are also using [React Testing Library][react-testing-library] to help us test the UI components.
+- **Routing**: We are using [Reach Router][reach-router], a small, simple router for React. Reach Router has a small footprint, supports only simple route patterns by design, and has strong accessibility features. We decided to pass on [React Router][react-router] because of [this announcement][react-router-announcement] found on the React Router documentation page. When the React Router v6.0.0 is finally out, we could evaluate on switching to that router.
 - **Deployments**: We will be using [Firebase hosting][firebase-hosting] for `dev`, and `staging`.
 
 ## Development Tools Setup
@@ -213,6 +214,9 @@ Please read through our [contributing guidelines](/docs/CONTRIBUTING.md). Includ
 [prettier]: https://prettier.io/
 [jest]: https://jestjs.io/
 [react-testing-library]: https://testing-library.com/
+[reach-router]: https://reach.tech/router
+[react-router]: https://reacttraining.com/react-router/web/guides/quick-start
+[react-router-announcement]: https://reacttraining.com/blog/reach-react-router-future/
 [firebase-hosting]: https://firebase.google.com/docs/hosting
 [editorconfig_instructions]: https://editorconfig.org/#download
 [eslint_vscode_extension]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
