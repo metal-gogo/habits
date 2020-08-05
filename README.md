@@ -27,7 +27,7 @@
     - [Deploying to Dev](#deploying-to-dev)
     - [Deploying to Staging](#deploying-to-staging)
   - [How to contribute](#how-to-contribute)
-      - [TL;DR](#tldr)
+    - [TL;DR](#tldr)
 
 ## Tech stack
 
@@ -189,11 +189,23 @@ For most third-party dependencies there should be a dedicated directory under th
 
 ### Exceptions
 
-There is a couple of exceptions for using the **bridge pattern**: `react`, and `prop-types`. After all, we are making a **React** project. If the API of these libraries changes, then we should update our codebase accordingly.
+There is a few exceptions for using the **bridge pattern**:
 
-### Important clarification
+- `react`
+- `prop-types`
+- `@testing-library/react`
 
-It's important to note that we refer to dependencies to everything that imposes an API foreign to our codebase logic.
+After all, we are making a **React** project, and these are the core libraries that we are using. If the API of these dependencies changes, then we should update our codebase accordingly.
+
+### Important abstractions
+
+Some abstractions are really important and we would have it's own directory inside `src`:
+
+- `router`
+
+### Notable clarification
+
+It's relevant to note that we refer to dependencies to everything that imposes an API foreign to our codebase logic.
 
 This will provide us with the flexibility to work with a specific dependency without compromising our implementation to that.
 
