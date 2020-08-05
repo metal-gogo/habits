@@ -18,6 +18,10 @@
   - [Testing](#testing)
     - [Filename Conventions](#filename-conventions)
     - [Running our tests](#running-our-tests)
+  - [Dependencies](#dependencies)
+    - [Bridge pattern](#bridge-pattern)
+    - [Exceptions](#exceptions)
+    - [Important clarification](#important-clarification)
   - [Deployments](#deployments)
     - [Setup Firebase](#setup-firebase)
     - [Deploying to Dev](#deploying-to-dev)
@@ -33,8 +37,8 @@
 - **Linting**: We are using [eslint][eslint] to lint our code. Eslint is a pluggable linting utility for JavaScript to keep our codebase written consistently. We are extending from [Airbnb configuration][airbnb_eslint]. We are also using [stylelint][stylelint], which is a mighty, modern linter that helps us avoid errors and enforce conventions in our styles.
 - **Code formatter**: In order to keep our codebase written consistently, and reducing the feedback loop for linting errors we are using [Prettier][prettier] as our code formatter. Prettier is an opinionated code formatter with support for JavaScript, CSS and JSON. With Prettier you can format the code you write automatically to ensure a code style within your project.
 - **Testing**: We require to have great code coverage with meaningful tests. As we are using Create React App, and most of our code will be written with JavasSript, we are usign [Jest][jest] as our testing framework. We are also using [React Testing Library][react-testing-library] to help us test the UI components.
-- **Routing**: We are using [Reach Router][reach-router], a small, simple router for React. Reach Router has a small footprint, supports only simple route patterns by design, and has strong accessibility features. We decided to pass on [React Router][react-router] because of [this announcement][react-router-announcement] found on the React Router documentation page. When the React Router v6.0.0 is finally out, we could evaluate on switching to that router.
-- **Deployments**: We will be using [Firebase hosting][firebase-hosting] for `dev`, and `staging`.
+- **Routing**: We are using [Reach Router][reach_router], a small, simple router for React. Reach Router has a small footprint, supports only simple route patterns by design, and has strong accessibility features. We decided to pass on [React Router][react_router] because of [this announcement][react_router_announcement] found on the React Router documentation page. When the React Router v6.0.0 is finally out, we could evaluate on switching to that router.
+- **Deployments**: We will be using [Firebase hosting][firebase_hosting] for `dev`, and `staging`.
 
 ## Development Tools Setup
 
@@ -169,6 +173,36 @@ This will start running your Jest tests, but pause before executing to allow a d
 
 For a more detailed explanation of our testing conventions, please read our [testing guidelines](/docs/testing.md).
 
+## Dependencies
+
+We've decided to wrap third-party dependencies into custom abstractions. As [this thread][sarah_dayan_dependency_thread] explains, the wrapped dependency is isolated, and if a change in the API of that dependency changes, there is only one change point in our codebase (making sure you respect the interface).
+
+If we let a dependency "invade" our code, we're inevitably going to couple the entire application to it. This means that we'll make choices that lean towards making the library happy, and end up with code which requires a significant cognitive overhead.
+
+### Bridge pattern
+
+In the OOP world, this is known as the [bridge pattern][bridge_pattern]. The goal is to:
+
+> Decouple an abstraction from its implementation so that the two can vary independently.
+
+For most third-party dependencies there should be a dedicated directory under the `dependencies` directory. On most cases this directory should keep the same name as the dependency that is going to be wrapped.
+
+### Exceptions
+
+There is a couple of exceptions for using the **bridge pattern**: `react`, and `prop-types`. After all, we are making a **React** project. If the API of these libraries changes, then we should update our codebase accordingly.
+
+### Important clarification
+
+It's important to note that we refer to dependencies to everything that imposes an API foreign to our codebase logic.
+
+This will provide us with the flexibility to work with a specific dependency without compromising our implementation to that.
+
+For instance, if we are working with the native [Fetch API][fetch_api]. Maybe we made that choice a while ago because that was enough. If the application starts growing, we might need to cover more use cases. Then, we could decide that it's time to move to something like [Axios][axios].
+
+If we've leaked the usage of Fetch everywhere, we would be up for a nasty refactor. Not only we are changing an implementation, but now we must also go to every single place we've used it. A targeted, focused change is now having a domino effect on the entire app.
+
+On the other hand, if we've wrapped **Fetch** in an abstraction that makes sense for our app, then we've isolated its usage. Maybe we pre-filled it with sensible defaults, and specialized into a module that anyone with domain knowledge of the app can understand.
+
 ## Deployments
 
 ### Setup Firebase
@@ -180,7 +214,7 @@ Make sure to be have access to the Firebase project. If you don't have access, a
 2. Login into Firebase:
    `firebase login`
 
-We will be using [Firebase hosting][firebase-hosting] for `dev`, and `qa`.
+We will be using [Firebase hosting][firebase_hosting] for `dev`, and `qa`.
 
 ### Deploying to Dev
 
@@ -192,7 +226,7 @@ To deploy the project to the `staging` environment just run the command `yarn de
 
 ## How to contribute
 
-Please read through our [contributing guidelines](/docs/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
+Please read through our [contributing guidelines](/docs/contributing.md). Included are directions for opening issues, coding standards, and notes on development.
 
 #### TL;DR
 
@@ -213,12 +247,16 @@ Please read through our [contributing guidelines](/docs/CONTRIBUTING.md). Includ
 [stylelint]: https://stylelint.io/
 [prettier]: https://prettier.io/
 [jest]: https://jestjs.io/
-[react-testing-library]: https://testing-library.com/
-[reach-router]: https://reach.tech/router
-[react-router]: https://reacttraining.com/react-router/web/guides/quick-start
-[react-router-announcement]: https://reacttraining.com/blog/reach-react-router-future/
-[firebase-hosting]: https://firebase.google.com/docs/hosting
+[react_testing_library]: https://testing-library.com/
+[reach_router]: https://reach.tech/router
+[react_router]: https://reacttraining.com/react-router/web/guides/quick-start
+[react_router_-_announcement]: https://reacttraining.com/blog/reach-react-router-future/
+[firebase_hosting]: https://firebase.google.com/docs/hosting
 [editorconfig_instructions]: https://editorconfig.org/#download
 [eslint_vscode_extension]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 [debbuger_for_chrome]: https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome
 [tdd]: https://medium.freecodecamp.org/test-driven-development-what-it-is-and-what-it-is-not-41fa6bca02a2
+[sarah_dayan_dependency_thread]: https://twitter.com/frontstuff_io/status/1264189583220244480
+[bridge_pattern]: https://refactoring.guru/design-patterns/bridge
+[fetch_api]: https://developer.mozilla.org/es/docs/Web/API/Fetch_API
+[axios]: https://github.com/axios/axios
