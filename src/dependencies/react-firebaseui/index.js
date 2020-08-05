@@ -1,4 +1,1 @@
-import StyledFirebaseAuth from './StyledFirebaseAuth';
-
-// eslint-disable-next-line import/prefer-default-export
-export { StyledFirebaseAuth };
+export { default as StyledFirebaseAuth } from './StyledFirebaseAuth';
