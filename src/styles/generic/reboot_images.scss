@@ -1,0 +1,15 @@
+@import "tools/mixins/import_once";
+
+@include import-once("generic/reboot_images") {
+  img {
+    border-style: none; // Remove the border on images inside links in IE 10-.
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+  svg {
+    overflow: hidden;
+    vertical-align: middle;
+  }
+}

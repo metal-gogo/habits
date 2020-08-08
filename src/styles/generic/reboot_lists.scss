@@ -1,0 +1,9 @@
+@import "tools/mixins/import_once";
+
+@include import-once("generic/reboot_lists") {
+  ol,
+  ul {
+    margin: 0 0 1rem 1.5rem;
+    padding: 0;
+  }
+}

@@ -21,13 +21,14 @@
   - [Dependencies](#dependencies)
     - [Bridge pattern](#bridge-pattern)
     - [Exceptions](#exceptions)
-    - [Important clarification](#important-clarification)
+    - [Important abstractions](#important-abstractions)
+    - [Notable clarification](#notable-clarification)
   - [Deployments](#deployments)
     - [Setup Firebase](#setup-firebase)
     - [Deploying to Dev](#deploying-to-dev)
     - [Deploying to Staging](#deploying-to-staging)
   - [How to contribute](#how-to-contribute)
-    - [TL;DR](#tldr)
+      - [TL;DR](#tldr)
 
 ## Tech stack
 
@@ -36,6 +37,7 @@
 - **Development**: We are using [React][react]. This project was bootstrapped with [Create React App][create_react_app]. You can learn more about **Create React App** on [this copy of the project README.md](/docs/create_react_app.md).
 - **Linting**: We are using [eslint][eslint] to lint our code. Eslint is a pluggable linting utility for JavaScript to keep our codebase written consistently. We are extending from [Airbnb configuration][airbnb_eslint]. We are also using [stylelint][stylelint], which is a mighty, modern linter that helps us avoid errors and enforce conventions in our styles.
 - **Code formatter**: In order to keep our codebase written consistently, and reducing the feedback loop for linting errors we are using [Prettier][prettier] as our code formatter. Prettier is an opinionated code formatter with support for JavaScript, CSS and JSON. With Prettier you can format the code you write automatically to ensure a code style within your project.
+- **Styling**: We are using [ITCSS][itcss]. You can read more about how we are implementing it [here](/docs/styling_with_itcss.md).
 - **Testing**: We require to have great code coverage with meaningful tests. As we are using Create React App, and most of our code will be written with JavasSript, we are usign [Jest][jest] as our testing framework. We are also using [React Testing Library][react-testing-library] to help us test the UI components.
 - **Routing**: We are using [Reach Router][reach_router], a small, simple router for React. Reach Router has a small footprint, supports only simple route patterns by design, and has strong accessibility features. We decided to pass on [React Router][react_router] because of [this announcement][react_router_announcement] found on the React Router documentation page. When the React Router v6.0.0 is finally out, we could evaluate on switching to that router.
 - **Deployments**: We will be using [Firebase hosting][firebase_hosting] for `dev`, and `staging`.
@@ -258,6 +260,7 @@ Please read through our [contributing guidelines](/docs/contributing.md). Includ
 [airbnb_eslint]: https://github.com/airbnb/javascript/tree/master/react
 [stylelint]: https://stylelint.io/
 [prettier]: https://prettier.io/
+[itcss]: https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
 [jest]: https://jestjs.io/
 [react_testing_library]: https://testing-library.com/
 [reach_router]: https://reach.tech/router
