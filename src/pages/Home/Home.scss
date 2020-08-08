@@ -1,0 +1,17 @@
+@import "styles/settings/variables";
+@import "styles/tools/mixins/import_once";
+@import "styles/tools/mixins/vh_100";
+
+@include import-once("pages/Home") {
+  .home {
+    @include vh-100;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .styled-firebase-auth {
+      margin-bottom: 3rem;
+    }
+  }
+}

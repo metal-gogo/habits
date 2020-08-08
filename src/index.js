@@ -3,13 +3,18 @@ import ReactDOM from 'react-dom';
 
 import './dependencies/firebase';
 
-import './index.scss';
+import './styles/main.scss';
+
 import App from './App';
+import AppProviders from './AppProviders';
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppProviders>
+      <App />
+    </AppProviders>
   </React.StrictMode>,
   document.getElementById('root'),
 );

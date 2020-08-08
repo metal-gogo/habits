@@ -1,9 +1,25 @@
 import React from 'react';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import PropTypes from 'prop-types';
+import FirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
 import { firebaseAuth } from '../firebase';
 
 import config from './config';
 
-export default () => (
-  <StyledFirebaseAuth uiConfig={config} firebaseAuth={firebaseAuth()} />
+const StyledFirebaseAuth = ({ className }) => (
+  <FirebaseAuth
+    uiConfig={config}
+    firebaseAuth={firebaseAuth()}
+    className={`${className} styled-firebase-auth`}
+  />
 );
+
+StyledFirebaseAuth.propTypes = {
+  className: PropTypes.string,
+};
+
+StyledFirebaseAuth.defaultProps = {
+  className: '',
+};
+
+export default StyledFirebaseAuth;
