@@ -18,7 +18,7 @@ const AuthProvider = (props) => {
     <AuthContext.Provider
       value={{
         user,
-        logout: firebaseAuth().signOut(),
+        logout: () => firebaseAuth().signOut(),
       }}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
