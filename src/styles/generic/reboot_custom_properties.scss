@@ -4,21 +4,21 @@
 @include import-once("generic/custom_properties") {
   :root {
     --primary: #{$pink-lavender};
-    --text-color: #{$gunmetal};
-    --text-color-inverse: #{invert($gunmetal)};
-    --bg-color: #{$gainsboro};
+    --text-color: #{$gainsboro};
+    --text-color-inverse: #{invert($gainsboro)};
+    --bg-color: #{$gunmetal};
 
     --black-100: #000;
     --white-100: #fff;
     --transparent: rgba(var(--white-100), 0.001);
   }
 
-  @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: light) {
     :root {
       --primary: #{$pink-lavender};
-      --text-color: #{$beau-blue};
-      --text-color-inverse: #{invert($beau-blue)};
-      --bg-color: #{$gunmetal};
+      --text-color: #{$gunmetal};
+      --text-color-inverse: #{invert($gunmetal)};
+      --bg-color: #{$gainsboro};
     }
   }
 }
