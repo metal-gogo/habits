@@ -11,7 +11,6 @@ const Dashboard = () => {
 
   return (
     <section className="page dashboard">
-      <h2>Dashboard route!!</h2>
       <button onClick={logout} type="button">Log out</button>
       <AddCommitmentForm />
     </section>

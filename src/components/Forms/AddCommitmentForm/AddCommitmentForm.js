@@ -5,6 +5,7 @@ import { useForm } from 'dependencies/react-hook-form';
 import './AddCommitmentForm.scss';
 
 import Field from 'components/FormElements/Field';
+import AreaField from 'components/FormElements/AreaField';
 
 const AddCommitmentForm = () => {
   const { register, handleSubmit } = useForm();
@@ -23,12 +24,12 @@ const AddCommitmentForm = () => {
         placeholder="Sleep earlier than 10 PM"
         ref={register}
       />
-      <Field
+      <AreaField
         id="description"
         name="description"
         type="text"
         labelTitle="Description"
-        placeholder="Sleeping early is important whether you are a fully grown person or a teenager. The benefits of it are beyond imagination."
+        placeholder="Sleeping early is important whether you are a fully grown person or a teenager."
         ref={register}
       />
       <Field
