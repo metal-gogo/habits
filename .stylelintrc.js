@@ -17,6 +17,6 @@ module.exports = {
       }
     ],
     "string-quotes": "double",
-    "max-nesting-depth": 2,
+    "max-nesting-depth": 3,
   }
 }

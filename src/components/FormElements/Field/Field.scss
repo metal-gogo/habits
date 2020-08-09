@@ -1,0 +1,109 @@
+@import "styles/settings/variables";
+@import "styles/tools/mixins/import_once";
+@import "styles/tools/mixins/input_placeholder";
+@import "styles/tools/mixins/visually_hidden";
+@import "styles/tools/mixins/body_2";
+
+@include import-once("components/FormElements/Field") {
+  .field {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 1.5rem;
+  }
+
+  .field__input {
+    background-color: $gainsboro;
+    border: 0.0625rem solid var(--text-color);
+    border-radius: 0.125rem;
+    color: $gunmetal;
+    padding: 0.5rem;
+    transition: border 0.3s ease-in-out;
+    width: 100%;
+
+    &.field__input--invalid {
+      border: 0.0625rem solid #f00;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0.125rem 0.2rem var(--primary);
+      outline: 0;
+    }
+  }
+
+  .field__label {
+    margin-bottom: 0.35rem;
+  }
+
+  .field__input[type="radio"],
+  .field__input[type="checkbox"] {
+    @include visually-hidden;
+
+    + .field__label {
+      background-color: var(--bg-color);
+      display: block;
+      padding: 1.125rem 1.125rem 1.125rem 2.5rem;
+      position: relative;
+      width: 100%;
+
+      &::before {
+        border: 0.0625rem solid var(--text-color);
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        left: 1rem;
+        margin-right: 0.625rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1rem;
+      }
+    }
+
+    &:checked {
+      + .field__label {
+        &::after {
+          background-color: var(--text-color);
+          content: "";
+          height: 0.5rem;
+          left: 1rem;
+          position: absolute;
+          top: 50%;
+          transform: translate(0.25rem, -50%);
+          width: 0.5rem;
+        }
+      }
+    }
+
+    &:focus {
+      + .field__label {
+        &::before {
+          box-shadow: 0 0 0.125rem 0.2rem var(--primary);
+        }
+      }
+    }
+  }
+
+  .field__input[type="radio"] {
+    + .field__label {
+      &::before {
+        border-radius: 50%;
+      }
+    }
+
+    &:checked {
+      + .field__label {
+        &::after {
+          background-color: var(--text-color);
+          border-radius: 50%;
+          content: "";
+          height: 0.75rem;
+          left: 1rem;
+          position: absolute;
+          top: 50%;
+          transform: translate(0.125rem, -50%);
+          width: 0.75rem;
+        }
+      }
+    }
+  }
+}
