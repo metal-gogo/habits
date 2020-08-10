@@ -7,11 +7,15 @@
     background-color: var(--bg-color);
     color: var(--text-color); // Base text color
     // Main font for the content
-    font-family: // "Custom font",
-      // Safari for OS X and iOS (San Francisco) -apple-system,
-      // Chrome >= 56 for OS X (San Francisco), Windows, Linux and Android system-ui,
-      // Chrome < 56 for OS X (San Francisco) BlinkMacSystemFont,
-      // Windows "Segoe UI",
+    font-family: "Raleway",
+      // Safari for OS X and iOS (San Francisco)
+        -apple-system,
+      // Chrome >= 56 for OS X (San Francisco), Windows, Linux and Android
+        system-ui,
+      // Chrome < 56 for OS X (San Francisco)
+        BlinkMacSystemFont,
+      // Windows
+        "Segoe UI",
       // Android
         Roboto,
       // Basic web fallback
