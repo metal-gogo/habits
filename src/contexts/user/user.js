@@ -3,10 +3,11 @@ import { useAuth } from 'contexts/auth';
 
 const UserContext = React.createContext();
 
+/* eslint-disable react/jsx-props-no-spreading */
 const UserProvider = (props) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
   <UserContext.Provider value={useAuth().user} {...props} />
 );
+/* eslint-enable react/jsx-props-no-spreading */
 
 const useUser = () => React.useContext(UserContext);
 
