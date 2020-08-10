@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column-reverse;
     margin-bottom: 1.5rem;
+    min-width: 18rem;
   }
 
   .area-field__textarea {
@@ -16,13 +17,14 @@
     border: 0.0625rem solid var(--text-color);
     border-radius: 0.125rem;
     color: $gunmetal;
+    margin-bottom: 0.35rem;
     min-height: 6rem;
     padding: 0.5rem;
-    transition: border 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
     width: 100%;
 
-    &.area-field__textarea--invalid {
-      border: 0.0625rem solid #f00;
+    &.area-field__input--invalid {
+      box-shadow: 0 0 0.125rem 0.2rem $crimson;
     }
 
     &:focus {
@@ -33,5 +35,10 @@
 
   .area-field__label {
     margin-bottom: 0.35rem;
+  }
+
+  .area-field__error-message {
+    margin-bottom: 0;
+    order: -1;
   }
 }

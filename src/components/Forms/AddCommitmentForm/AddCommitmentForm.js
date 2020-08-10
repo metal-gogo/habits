@@ -8,7 +8,7 @@ import Field from 'components/FormElements/Field';
 import AreaField from 'components/FormElements/AreaField';
 
 const AddCommitmentForm = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, errors, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log('onSubmit data', data);
@@ -22,7 +22,10 @@ const AddCommitmentForm = () => {
         type="text"
         labelTitle="Ttile"
         placeholder="Sleep earlier than 10 PM"
-        ref={register}
+        errorMessage={errors.title?.message}
+        ref={register({
+          required: 'Please name your commitment.',
+        })}
       />
       <AreaField
         id="description"
@@ -30,7 +33,10 @@ const AddCommitmentForm = () => {
         type="text"
         labelTitle="Description"
         placeholder="Sleeping early is important whether you are a fully grown person or a teenager."
-        ref={register}
+        errorMessage={errors.description?.message}
+        ref={register({
+          required: 'Please describe your commitment.',
+        })}
       />
       <Field
         id="isHabitCreationCommitment"
@@ -45,28 +51,3 @@ const AddCommitmentForm = () => {
 };
 
 export default AddCommitmentForm;
-
-// {
-//   "longestStreakCount": 1,
-//   "isHabitCreationCommitment": true,
-//   "currentStreakStartedAt": {
-//     "seconds": 1596337200,
-//     "nanoseconds": 0
-//   },
-//   "description": "Sleeping early is important whether you.",
-//   "benefitsOfCommitment": [
-//     "Protect the heart",
-//     "Reduce the risk of cancer",
-//     "Energy boost",
-//     "Improvement in skin conditions"
-//   ],
-//   "lastCommitmentAt": {
-//     "seconds": 1596337200,
-//     "nanoseconds": 0
-//   },
-//   "commitmentCreatedAt": {
-//     "seconds": 1596337200,
-//     "nanoseconds": 0
-//   },
-//   "title": "Sleeping early"
-// }

@@ -9,15 +9,19 @@ const Field = forwardRef(({
   name,
   className,
   isRequired,
-  isValid,
   onChange,
   onFocus,
   onKeyPress,
   placeholder,
   type,
+  errorMessage,
   ...props
 }, ref) => {
-  const isValidClass = isValid ? 'field__input--valid' : 'field__input--invalid';
+  console.log('errorMessage', errorMessage);
+  console.log('errorMessage.length', errorMessage.length);
+  console.log('errorMessage.length > 0', errorMessage.length > 0);
+  const hasError = errorMessage.length > 0;
+  const fieldValidationClass = hasError ? 'field__input--invalid' : 'field__input--valid';
 
   return (
     <div className="field">
@@ -30,7 +34,7 @@ const Field = forwardRef(({
         onFocus={onFocus}
         placeholder={placeholder}
         onKeyPress={onKeyPress}
-        className={`field__input ${isValidClass} ${className}`}
+        className={`field__input ${fieldValidationClass} ${className}`}
         ref={ref}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
@@ -38,6 +42,9 @@ const Field = forwardRef(({
       <label htmlFor={id} className="field__label">
         {labelTitle}
       </label>
+      { hasError ? (
+        <p className="field__error-message">{ errorMessage }</p>
+      ) : null }
     </div>
   );
 });
@@ -48,23 +55,23 @@ Field.propTypes = {
   name: PropTypes.string.isRequired,
   className: PropTypes.string,
   isRequired: PropTypes.bool,
-  isValid: PropTypes.bool,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onKeyPress: PropTypes.func,
   placeholder: PropTypes.string,
   type: PropTypes.string,
+  errorMessage: PropTypes.string,
 };
 
 Field.defaultProps = {
   className: '',
   isRequired: false,
-  isValid: true,
   onChange: () => {},
   onFocus: () => {},
   onKeyPress: () => {},
   placeholder: '',
   type: 'text',
+  errorMessage: '',
 };
 
 export default Field;

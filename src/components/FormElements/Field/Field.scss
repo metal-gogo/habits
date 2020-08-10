@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column-reverse;
     margin-bottom: 1.5rem;
+    min-width: 18rem;
   }
 
   .field__input {
@@ -16,12 +17,13 @@
     border: 0.0625rem solid var(--text-color);
     border-radius: 0.125rem;
     color: $gunmetal;
+    margin-bottom: 0.35rem;
     padding: 0.5rem;
-    transition: border 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
     width: 100%;
 
     &.field__input--invalid {
-      border: 0.0625rem solid #f00;
+      box-shadow: 0 0 0.125rem 0.2rem $crimson;
     }
 
     &:focus {
@@ -34,6 +36,11 @@
     margin-bottom: 0.35rem;
   }
 
+  .field__error-message {
+    margin-bottom: 0;
+    order: -1;
+  }
+
   .field__input[type="radio"],
   .field__input[type="checkbox"] {
     @include visually-hidden;
@@ -41,35 +48,44 @@
     + .field__label {
       background-color: var(--bg-color);
       display: block;
-      padding: 1.125rem 1.125rem 1.125rem 2.5rem;
+      padding: 1.125rem 0 1.125rem 1.5rem;
       position: relative;
       width: 100%;
 
       &::before {
+        background-color: $gainsboro;
         border: 0.0625rem solid var(--text-color);
+        border-radius: 0.125rem;
         content: "";
         display: inline-block;
         height: 1rem;
-        left: 1rem;
-        margin-right: 0.625rem;
+        left: 0.25rem;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        transition: box-shadow 0.3s ease-in-out;
         width: 1rem;
+      }
+
+      &::after {
+        background-color: $gunmetal;
+        border-radius: 0.125rem;
+        content: "";
+        height: 0.5rem;
+        left: 0.25rem;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(0.25rem, -50%);
+        transition: opacity 0.3s ease-in-out;
+        width: 0.5rem;
       }
     }
 
     &:checked {
       + .field__label {
         &::after {
-          background-color: var(--text-color);
-          content: "";
-          height: 0.5rem;
-          left: 1rem;
-          position: absolute;
-          top: 50%;
-          transform: translate(0.25rem, -50%);
-          width: 0.5rem;
+          opacity: 1;
         }
       }
     }
