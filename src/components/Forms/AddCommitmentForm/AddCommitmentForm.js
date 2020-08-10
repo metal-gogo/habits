@@ -8,7 +8,14 @@ import Field from 'components/FormElements/Field';
 import AreaField from 'components/FormElements/AreaField';
 
 const AddCommitmentForm = () => {
-  const { register, errors, handleSubmit } = useForm();
+  const {
+    register,
+    errors,
+    handleSubmit,
+    formState,
+  } = useForm({ mode: 'onChange' });
+
+  const showErrorOnFormMessage = formState.isSubmitted && !formState.isValid;
 
   const onSubmit = (data) => {
     console.log('onSubmit data', data);
@@ -45,6 +52,11 @@ const AddCommitmentForm = () => {
         labelTitle="Is habit creation commitment"
         ref={register}
       />
+      { showErrorOnFormMessage ? (
+        <p className="add-commitment-form__error-message">
+          Please check out the form information.
+        </p>
+      ) : null }
       <button type="submit">Save</button>
     </form>
   );

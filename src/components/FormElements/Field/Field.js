@@ -17,9 +17,6 @@ const Field = forwardRef(({
   errorMessage,
   ...props
 }, ref) => {
-  console.log('errorMessage', errorMessage);
-  console.log('errorMessage.length', errorMessage.length);
-  console.log('errorMessage.length > 0', errorMessage.length > 0);
   const hasError = errorMessage.length > 0;
   const fieldValidationClass = hasError ? 'field__input--invalid' : 'field__input--valid';
 
