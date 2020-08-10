@@ -8,7 +8,7 @@ const Home = () => (
   <section className="page home">
     <h1>Habits</h1>
     <StyledFirebaseAuth />
-    <p>Make commitements to learn new gerat habits, or leave behind bad habits.</p>
+    <p>Make commitements to grab great habits.</p>
   </section>
 );
 
