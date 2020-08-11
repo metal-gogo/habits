@@ -10,7 +10,7 @@ const transitionTimeout = 200;
 const FadeTransitionRouter = (props) => (
   <Location>
     {({ location }) => (
-      <TransitionGroup className="transition-group">
+      <TransitionGroup className="fade-transition-router">
         <CSSTransition key={location.key} classNames="fade" timeout={transitionTimeout}>
           <Router location={location} className="router">
             {props.children}
