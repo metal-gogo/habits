@@ -1,12 +1,15 @@
 @import "settings/variables";
+@import "tools/functions/get_shade";
 @import "tools/mixins/import_once";
 
 @include import-once("generic/custom_properties") {
   :root {
-    --primary: #{$pink-lavender};
+    --primary: #{$african-violet};
+    --primary-80: #{get-shade($african-violet, 80)};
     --text-color: #{$gainsboro};
     --text-color-inverse: #{invert($gainsboro)};
     --bg-color: #{$gunmetal};
+    --disabled: #{$lavender-gray};
 
     --black-100: #000;
     --white-100: #fff;
@@ -15,7 +18,6 @@
 
   @media (prefers-color-scheme: light) {
     :root {
-      --primary: #{$pink-lavender};
       --text-color: #{$gunmetal};
       --text-color-inverse: #{invert($gunmetal)};
       --bg-color: #{$beau-blue};

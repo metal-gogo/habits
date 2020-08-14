@@ -1,0 +1,11 @@
+@function get-shade($color, $shade: 100) {
+  @if $shade == 100 {
+    @return $color;
+  }
+
+  $lightness-reference: 100;
+  $lightness-diff: $lightness-reference - $shade;
+  $new-lightness: round(lightness($color)) + $lightness-diff;
+
+  @return change-color($color, $lightness: $new-lightness);
+}
