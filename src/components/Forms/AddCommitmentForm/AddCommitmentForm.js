@@ -6,6 +6,7 @@ import './AddCommitmentForm.scss';
 
 import Field from 'components/FormElements/Field';
 import AreaField from 'components/FormElements/AreaField';
+import DefaultCTA from 'components/CTAs/DefaultCTA';
 
 const AddCommitmentForm = () => {
   const {
@@ -57,7 +58,8 @@ const AddCommitmentForm = () => {
           Please check out the form information.
         </p>
       ) : null }
-      <button type="submit">Save</button>
+
+      <DefaultCTA type="submit">Save</DefaultCTA>
     </form>
   );
 };
