@@ -5,8 +5,7 @@ import './dependencies/firebase';
 
 import './styles/main.scss';
 
-import addPaintModule from 'utils/addPaintModule';
-import registerCSSProperty from 'utils/registerCSSProperty';
+import bootstrapHoudini from 'utils/bootstrapHoudini';
 
 import App from './App';
 import AppProviders from './AppProviders';
@@ -26,10 +25,8 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-addPaintModule('bezel.js');
-registerCSSProperty({
-  name: '--bezel-color',
-  syntax: '<color>',
-  inherits: true,
-  initialValue: 'black',
-});
+
+// Bootstrap Houdini should register all the Modules, and Properties in the application.
+// This is something that we only want to happen once, therefore it is added on the
+// application `index.js` file.
+bootstrapHoudini();
