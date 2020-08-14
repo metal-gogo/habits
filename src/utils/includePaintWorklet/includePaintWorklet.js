@@ -1,6 +1,7 @@
 const includePaintWorklet = (moduleUrl) => {
+  const version = process.env.REACT_APP_VERSION;
   if ('paintWorklet' in CSS) {
-    CSS.paintWorklet.addModule(`${moduleUrl}?v=1`);
+    CSS.paintWorklet.addModule(`${moduleUrl}?version=${version}`);
   }
 };
 

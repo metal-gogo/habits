@@ -5,6 +5,8 @@ import './dependencies/firebase';
 
 import './styles/main.scss';
 
+import includePaintWorklet from 'utils/includePaintWorklet';
+
 import App from './App';
 import AppProviders from './AppProviders';
 
@@ -23,3 +25,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+includePaintWorklet('bezel.js');
