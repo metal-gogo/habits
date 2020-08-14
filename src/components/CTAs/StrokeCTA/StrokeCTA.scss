@@ -1,0 +1,27 @@
+@import "styles/settings/variables";
+@import "styles/tools/functions/get_shade";
+@import "styles/tools/mixins/import_once";
+
+@include import-once("components/CTAs/StrokeCTA") {
+  .stroke-cta {
+    --bezel-color: var(--primary);
+    --bezel-width: 1;
+    --bezel-radius: 16px 0 16px 0;
+    background-color: unset;
+    background-image: paint(bezel);
+    color: var(--text-color);
+    transition-duration: 0.3s;
+    transition-property: --bezel-color, color;
+    transition-timing-function: ease-in-out;
+
+    &:hover {
+      --bezel-color: var(--primary-80);
+      background-color: unset;
+    }
+
+    &:disabled {
+      --bezel-color: var(--disabled);
+      background-color: unset;
+    }
+  }
+}

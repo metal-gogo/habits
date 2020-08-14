@@ -6,7 +6,7 @@
   .default-cta {
     align-items: center;
     background-color: var(--primary);
-    border: 0.25rem solid var(--text-color);
+    border: 0;
     color: $gunmetal;
     display: flex;
     font-weight: bold;
@@ -20,6 +20,7 @@
     &:hover {
       background-color: var(--primary-80);
       cursor: pointer;
+      // --bezel-color: var(--primary-80);
     }
 
     &:disabled {

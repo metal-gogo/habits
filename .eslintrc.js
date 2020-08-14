@@ -7,11 +7,14 @@ module.exports = {
       assert: "either"
     }]
   },
-  "settings": {
+  settings: {
     "import/resolver": {
       "node": {
         "moduleDirectory": ["node_modules", "src/"]
       }
     }
+  },
+  globals: {
+    'registerPaint': true,
   }
 };
