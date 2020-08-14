@@ -1,6 +1,6 @@
 const includePaintWorklet = (moduleUrl) => {
   if ('paintWorklet' in CSS) {
-    CSS.paintWorklet.addModule(moduleUrl);
+    CSS.paintWorklet.addModule(`${moduleUrl}?v=1`);
   }
 };
 
