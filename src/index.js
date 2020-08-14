@@ -6,6 +6,7 @@ import './dependencies/firebase';
 import './styles/main.scss';
 
 import addPaintModule from 'utils/addPaintModule';
+import registerCSSProperty from 'utils/registerCSSProperty';
 
 import App from './App';
 import AppProviders from './AppProviders';
@@ -26,3 +27,9 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 addPaintModule('bezel.js');
+registerCSSProperty({
+  name: '--bezel-color',
+  syntax: '<color>',
+  inherits: true,
+  initialValue: 'black',
+});
