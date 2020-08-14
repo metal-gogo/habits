@@ -2,6 +2,8 @@ import React from 'react';
 
 import { StyledFirebaseAuth } from 'dependencies/react-firebaseui';
 
+import 'utils/setVH100';
+
 import './Home.scss';
 
 const Home = () => (

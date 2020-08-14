@@ -5,8 +5,8 @@
 /// @access public
 /// @param {String} $heightAdjustment - a height adjustment for header or footer
 @mixin vh-100($heightAdjustment: "0rem") {
-  height: calc(
+  min-height: calc(
     100vh - #{$heightAdjustment}
   ); /* Fallback for browsers that do not support Custom Properties */
-  height: calc((var(--vh, 1vh) * 100 - #{$heightAdjustment}));
+  min-height: calc((var(--vh, 1vh) * 100 - #{$heightAdjustment}));
 }

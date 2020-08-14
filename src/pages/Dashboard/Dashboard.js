@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useAuth } from 'contexts/auth';
 
+import 'utils/setVH100';
+
 import './Dashboard.scss';
 
 import AddCommitmentForm from 'components/Forms/AddCommitmentForm';
