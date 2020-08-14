@@ -6,6 +6,7 @@
   :root {
     --primary: #{$african-violet};
     --primary-80: #{get-shade($african-violet, 80)};
+    --primary-115: #{get-shade($african-violet, 115)};
     --text-color: #{$gainsboro};
     --text-color-inverse: #{invert($gainsboro)};
     --bg-color: #{$gunmetal};

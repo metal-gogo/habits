@@ -7,15 +7,21 @@
     --bezel-color: var(--primary);
     --bezel-width: 1;
     --bezel-radius: 16px 0 16px 0;
+    --fill-type: stroke;
     background-color: unset;
-    background-image: paint(bezel);
+    border: 0.125rem solid var(--bezel-color);
     color: var(--text-color);
     transition-duration: 0.3s;
-    transition-property: --bezel-color, color;
+    transition-property: --bezel-color, background-color, border, color;
     transition-timing-function: ease-in-out;
 
+    @supports (background: paint(id)) {
+      background-image: paint(bezel);
+      border: 0;
+    }
+
     &:hover {
-      --bezel-color: var(--primary-80);
+      --bezel-color: var(--primary-115);
       background-color: unset;
     }
 
