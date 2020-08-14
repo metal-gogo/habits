@@ -8,21 +8,31 @@
     --bezel-width: 1;
     --bezel-radius: 16px 0 16px 0;
     --fill-type: filled;
-    background-color: unset;
-    background-image: paint(bezel);
+    background-color: var(--bezel-color);
     color: $gunmetal;
     transition-duration: 0.3s;
-    transition-property: --bezel-color, color;
+    transition-property: --bezel-color, background-color, color;
     transition-timing-function: ease-in-out;
+
+    @supports (background: paint(id)) {
+      background-color: unset;
+      background-image: paint(bezel);
+    }
 
     &:hover {
       --bezel-color: var(--primary-80);
-      background-color: unset;
+
+      @supports (background: paint(id)) {
+        background-color: unset;
+      }
     }
 
     &:disabled {
       --bezel-color: var(--disabled);
-      background-color: unset;
+
+      @supports (background: paint(id)) {
+        background-color: unset;
+      }
     }
   }
 }
