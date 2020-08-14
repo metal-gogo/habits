@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 
 import './DefaultCTA.scss';
 
+/* eslint-disable react/jsx-props-no-spreading, react/button-has-type */
 const DefaultCTA = ({
   onClick, className, type, children, ...props
 }) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading, react/button-has-type
   <button className={`default-cta ${className}`} type={type} onClick={onClick} {...props}>
     {children}
   </button>
 );
+/* eslint-enable react/jsx-props-no-spreading, react/button-has-type */
 
 DefaultCTA.propTypes = {
   onClick: PropTypes.func,

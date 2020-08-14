@@ -14,17 +14,18 @@ const FilledCTA = ({
     includePaintWorklet('/bezel.js');
   }, []);
 
+  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <DefaultCTA
       className={`filled-cta ${className}`}
       type={type}
       onClick={onClick}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
       {children}
     </DefaultCTA>
   );
+  /* eslint-enable react/jsx-props-no-spreading */
 };
 
 FilledCTA.propTypes = {

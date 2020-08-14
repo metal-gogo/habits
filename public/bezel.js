@@ -13,7 +13,15 @@ class Bezel {
 
   // eslint-disable-next-line class-methods-use-this
   parseValue(value) {
-    return value.toString().replace(' ', '').replace(/rem|px|%/g, '').split(' ');
+    let parsedValue = value.toString();
+    if (parsedValue.charAt(0) === ' ') {
+      parsedValue = parsedValue.replace(' ', '');
+    }
+    const lengthUnitsRegex = /rem|px|%/g;
+    if (lengthUnitsRegex.test(parsedValue)) {
+      parsedValue = parsedValue.replace(lengthUnitsRegex, '');
+    }
+    return parsedValue.split(' ');
   }
 
   paint(ctx, size, properties) {
