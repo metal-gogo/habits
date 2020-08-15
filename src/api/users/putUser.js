@@ -6,7 +6,7 @@ import composeUserData from './utils/composeUserData';
 
 const putUser = async (userId, firebaseUser) => {
   try {
-    const user = composeUserData(firebaseUser);
+    const user = composeUserData(firebaseUser, false);
     await firebaseDB
       .collection(collectionKeys.users)
       .doc(userId)

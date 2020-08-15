@@ -6,7 +6,7 @@ import composeUserData from './utils/composeUserData';
 
 const postUser = async (userId, firebaseUser) => {
   try {
-    const newUser = composeUserData(firebaseUser);
+    const newUser = composeUserData(firebaseUser, true);
     await firebaseDB
       .collection(collectionKeys.users)
       .doc(userId)
