@@ -31,7 +31,7 @@ const AuthProvider = (props) => {
       }
     });
 
-    return unregisterAuthObserver;
+    return () => unregisterAuthObserver();
   }, []);
 
   if (isLoading) {
