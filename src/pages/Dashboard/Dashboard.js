@@ -15,14 +15,19 @@ const Dashboard = () => {
   const [commitments, setCommitments] = useState([]);
 
   useEffect(() => {
-    const fetchCommitments = async () => {
-      const fetchedCommitments = await CommitmentsApi.listCommitments(user.uid);
-      setCommitments(fetchedCommitments);
-    };
-
     setVH100();
-    fetchCommitments();
-  }, [user.uid]);
+
+    const unregisterCommitmentsObserver = CommitmentsApi
+      .getRealtimeCommitments(user.uid, (commitmentSnapshot) => {
+        const fetchedCommitments = [];
+        commitmentSnapshot.forEach((commitmentDocument) => {
+          fetchedCommitments.push(commitmentDocument);
+        });
+        setCommitments(fetchedCommitments);
+      });
+
+    return () => unregisterCommitmentsObserver();
+  }, [user.uid, setCommitments]);
 
   console.log('commitments', commitments);
 
