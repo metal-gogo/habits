@@ -7,9 +7,11 @@ const AuthContext = React.createContext();
 
 const AuthProvider = (props) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const unregisterAuthObserver = firebaseAuth().onAuthStateChanged(async (firebaseUser) => {
+      setIsLoading(true);
       try {
         let applicationUser = null;
         if (firebaseUser) {
@@ -24,11 +26,18 @@ const AuthProvider = (props) => {
         setUser(applicationUser);
       } catch (e) {
         setUser(null);
+      } finally {
+        setIsLoading(false);
       }
     });
 
     return unregisterAuthObserver;
   }, []);
+
+  if (isLoading) {
+    // TODO: implement FullPageLoader
+    return <div>Loading...</div>;
+  }
 
   return (
     <AuthContext.Provider
