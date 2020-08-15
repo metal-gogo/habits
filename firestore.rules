@@ -10,13 +10,31 @@ service cloud.firestore {
         return resource == null;
       }
 
-      allow read: if isSignedIn()
-      allow create: if isSignedIn() && isValidNewUser();
-      allow update, delete: if request.auth.uid == userId;
-
-      match /providers/{allChildren=**} {
-        allow read, write: if request.auth.uid == userId;
+      function isCurrentUser() {
+        return request.auth.uid == userId;
       }
+
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isValidNewUser();
+      allow update, delete: if isSignedIn() && isCurrentUser();
+    }
+
+    match /commitments/{commitmentId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isValidNewCommitment() {
+        return resource == null && request.auth.uid == request.resource.data.userId;
+      }
+
+      function isUserCommitment() {
+        return request.auth.uid == resource.data.userId;
+      }
+
+      allow read: if isSignedIn() && isUserCommitment();
+      allow create: if isSignedIn() && isValidNewUser();
+      allow update, delete: if isSignedIn() && isUserCommitment();
     }
   }
 }
