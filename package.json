@@ -51,7 +51,8 @@
     "test:debug": "react-app-rewired --inspect-brk test --runInBand --no-cache",
     "remove:cache": "rm -rf ./node_modules/.cache",
     "deploy:dev": "yarn build && firebase deploy --only hosting:dev",
-    "deploy:staging": "yarn build && firebase deploy --only hosting:qa"
+    "deploy:staging": "yarn build && firebase deploy --only hosting:qa",
+    "deploy:database-rules": "firebase deploy --only firestore:rules"
   },
   "browserslist": {
     "production": [
