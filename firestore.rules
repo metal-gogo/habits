@@ -33,7 +33,7 @@ service cloud.firestore {
       }
 
       allow read: if isSignedIn() && isUserCommitment();
-      allow create: if isSignedIn() && isValidNewUser();
+      allow create: if isSignedIn() && isValidNewCommitment();
       allow update, delete: if isSignedIn() && isUserCommitment();
     }
   }
