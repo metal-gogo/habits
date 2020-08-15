@@ -2,6 +2,10 @@ import React from 'react';
 
 import { useForm } from 'dependencies/react-hook-form';
 
+import { useAuth } from 'contexts/auth';
+
+import * as CommitmentsApi from 'api/commitments';
+
 import './AddCommitmentForm.scss';
 
 import Field from 'components/FormElements/Field';
@@ -14,12 +18,19 @@ const AddCommitmentForm = () => {
     errors,
     handleSubmit,
     formState,
+    reset,
   } = useForm({ mode: 'onChange' });
+  const { user } = useAuth();
 
   const showErrorOnFormMessage = formState.isSubmitted && !formState.isValid;
 
-  const onSubmit = (data) => {
-    console.log('onSubmit data', data);
+  const onSubmit = async (data) => {
+    await CommitmentsApi.postCommitment(user.uid, {
+      title: data.title,
+      description: data.description,
+      isHabitCreationCommitment: data.isHabitCreationCommitment,
+    });
+    reset();
   };
 
   return (
