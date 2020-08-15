@@ -35,7 +35,6 @@ const AuthProvider = (props) => {
   }, []);
 
   if (isLoading) {
-    // TODO: implement FullPageLoader
     return <div>Loading...</div>;
   }
 
