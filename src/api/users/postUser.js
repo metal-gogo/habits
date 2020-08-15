@@ -1,4 +1,4 @@
-import { firebaseDB } from 'dependencies/firebase';
+import firebase, { firebaseDB } from 'dependencies/firebase';
 
 import collectionKeys from 'api/collectionKeys';
 
@@ -6,7 +6,10 @@ import composeUserData from './utils/composeUserData';
 
 const postUser = async (userId, firebaseUser) => {
   try {
-    const newUser = composeUserData(firebaseUser, true);
+    const newUser = composeUserData({
+      ...firebaseUser,
+      createdAt: firebase.firestore.Timestamp.now(),
+    });
     await firebaseDB
       .collection(collectionKeys.users)
       .doc(userId)
