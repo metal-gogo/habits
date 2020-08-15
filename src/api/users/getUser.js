@@ -2,11 +2,11 @@ import { firebaseDB } from 'dependencies/firebase';
 
 import collectionKeys from 'api/collectionKeys';
 
-const getUser = async (userToken) => {
+const getUser = async (userId) => {
   try {
     const user = await firebaseDB
       .collection(collectionKeys.users)
-      .doc(userToken)
+      .doc(userId)
       .get();
     if (user.exists) {
       return user.data();
