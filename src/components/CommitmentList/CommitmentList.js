@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './CommitmentList.scss';
+
 import CommitmentCard from 'components/CommitmentCard';
 
 const CommitmentList = ({ commitments }) => {
