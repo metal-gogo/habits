@@ -10,6 +10,7 @@
     --text-color: #{$gainsboro};
     --text-color-inverse: #{invert($gainsboro)};
     --bg-color: #{$gunmetal};
+    --bg-color-90: #{get-shade($gunmetal, 90)};
     --disabled: #{$lavender-gray};
 
     --black-100: #000;
@@ -22,6 +23,7 @@
       --text-color: #{$gunmetal};
       --text-color-inverse: #{invert($gunmetal)};
       --bg-color: #{$beau-blue};
+      --bg-color-90: #{get-shade($beau-blue, 90)};
     }
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './CommitmentCard.scss';
+
 const CommitmentCard = ({ title, description, isHabitCreationCommitment }) => (
   <article className="commitment-card">
     <h2 className="commitment-card__title">
