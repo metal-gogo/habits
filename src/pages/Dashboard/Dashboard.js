@@ -8,7 +8,7 @@ import setVH100 from 'utils/setVH100/setVH100';
 
 import './Dashboard.scss';
 
-import CommitmentCard from 'components/CommitmentCard';
+import CommitmentList from 'components/CommitmentList';
 import AddCommitmentForm from 'components/Forms/AddCommitmentForm';
 
 const Dashboard = () => {
@@ -34,19 +34,10 @@ const Dashboard = () => {
     return () => unregisterCommitmentsObserver();
   }, [user.uid, setCommitments]);
 
-  const renderCommitments = () => commitments.map((commitment) => (
-    <CommitmentCard
-      key={commitment.id}
-      title={commitment.title}
-      description={commitment.description}
-      isHabitCreationCommitment={commitment.isHabitCreationCommitment}
-    />
-  ));
-
   return (
     <section className="page dashboard">
       <h1 className="dashboard__title">Your commitments:</h1>
-      {renderCommitments()}
+      <CommitmentList commitments={commitments} />
       <AddCommitmentForm />
       <button onClick={logout} type="button">Log out</button>
     </section>
