@@ -8,6 +8,7 @@ import setVH100 from 'utils/setVH100/setVH100';
 
 import './Dashboard.scss';
 
+import CommitmentList from 'components/CommitmentList';
 import AddCommitmentForm from 'components/Forms/AddCommitmentForm';
 
 const Dashboard = () => {
@@ -21,7 +22,11 @@ const Dashboard = () => {
       .getRealtimeCommitments(user.uid, (commitmentSnapshot) => {
         const fetchedCommitments = [];
         commitmentSnapshot.forEach((commitmentDocument) => {
-          fetchedCommitments.push(commitmentDocument);
+          const commitment = {
+            id: commitmentDocument.id,
+            ...commitmentDocument.data(),
+          };
+          fetchedCommitments.push(commitment);
         });
         setCommitments(fetchedCommitments);
       });
@@ -29,12 +34,12 @@ const Dashboard = () => {
     return () => unregisterCommitmentsObserver();
   }, [user.uid, setCommitments]);
 
-  console.log('commitments', commitments);
-
   return (
     <section className="page dashboard">
-      <button onClick={logout} type="button">Log out</button>
+      <h1 className="dashboard__title">Your commitments:</h1>
+      <CommitmentList commitments={commitments} />
       <AddCommitmentForm />
+      <button onClick={logout} type="button">Log out</button>
     </section>
   );
 };

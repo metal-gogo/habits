@@ -1,0 +1,18 @@
+@import "styles/settings/variables";
+@import "styles/tools/functions/get_shade";
+@import "styles/tools/mixins/import_once";
+
+@include import-once("components/CommitmentList") {
+  .commitment-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    margin: 0;
+  }
+
+  .commitment-list__item {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+  }
+}
