@@ -26,7 +26,7 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.0.8",
     "firebase-tools": "^8.7.0",
-    "gitmoji-cli": "^3.2.9",
+    "gitmoji-cli": "^3.2.10",
     "husky": "^4.2.5",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "lint-staged": "^10.2.11",
