@@ -6656,10 +6656,10 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-gitmoji-cli@^3.2.9:
-  version "3.2.9"
-  resolved "https://registry.yarnpkg.com/gitmoji-cli/-/gitmoji-cli-3.2.9.tgz#7a0420f8b43870f59332e13a031a36189a73626a"
-  integrity sha512-JbZk22H0CSR1QEHKKTxIOTTp3NH+kDhUvlNM+zRIifayjJrzwuE4TcktBRNZJ0lWGDYU5mpQM/XkyjTP9k95tg==
+gitmoji-cli@^3.2.10:
+  version "3.2.10"
+  resolved "https://registry.yarnpkg.com/gitmoji-cli/-/gitmoji-cli-3.2.10.tgz#98d8729f3207996aaeed65cb959e222d706defb9"
+  integrity sha512-IVwhdySPQyHTfImCGllphBqHZtDWGnphjZG4EhkKtJY98b69sbaRU8PRO+XEC0rutbb5Gf0oCHvM3QswtAVCeQ==
   dependencies:
     chalk "^4.1.0"
     conf "^7.0.1"
