@@ -7,7 +7,7 @@
     &.filled-cta {
       --bezel-color: var(--primary);
       --bezel-width: 1;
-      --bezel-radius: 16px 0 16px 0;
+      --bezel-radius: 0 0 24px 24px;
       --fill-type: filled;
       background-color: var(--bezel-color);
       color: $gunmetal;
