@@ -22,7 +22,7 @@ describe('components/TheHeader', () => {
     expect(componentContainerElement.className).toMatch(/the-header/);
   });
 
-  it('renders the DeleteCTA for this commitment card', () => {
+  it('renders the Logout CTA', () => {
     const { container } = render((
       <TheHeader />
     ));
