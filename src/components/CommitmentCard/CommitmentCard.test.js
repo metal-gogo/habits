@@ -114,7 +114,7 @@ describe('components/CommitmentCard', () => {
         isHabitCreationCommitment={commitment.isHabitCreationCommitment}
       />
     ));
-    const deleteCTAElement = container.querySelector('button.delete-cta');
+    const deleteCTAElement = container.querySelector('button.commitment-card__delete-cta');
     expect(deleteCTAElement).toBeInTheDocument();
   });
 
@@ -128,7 +128,7 @@ describe('components/CommitmentCard', () => {
         isHabitCreationCommitment={commitment.isHabitCreationCommitment}
       />
     ));
-    const deleteCTAElement = container.querySelector('button.delete-cta');
+    const deleteCTAElement = container.querySelector('button.commitment-card__delete-cta');
     deleteCTAElement.click();
     expect(deleteCommitment).toHaveBeenCalledTimes(1);
   });

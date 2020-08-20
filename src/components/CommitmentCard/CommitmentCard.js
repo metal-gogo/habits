@@ -5,7 +5,7 @@ import * as CommitmentsApi from 'api/commitments';
 
 import './CommitmentCard.scss';
 
-import DeleteCTA from 'components/CTAs/DeleteCTA';
+import IconCTA from 'components/CTAs/IconCTA';
 
 const CommitmentCard = ({
   id, title, description, isHabitCreationCommitment,
@@ -25,7 +25,7 @@ const CommitmentCard = ({
       <small className="commitment-card__commitment-type">
         { isHabitCreationCommitment ? 'Making habit' : 'Losing habit' }
       </small>
-      <DeleteCTA onClick={handleDelete} className="commitment-card__delete-cta" />
+      <IconCTA iconName="trash" onClick={handleDelete} className="commitment-card__delete-cta" />
     </article>
   );
 };

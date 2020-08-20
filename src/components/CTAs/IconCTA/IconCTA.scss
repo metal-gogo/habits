@@ -1,8 +1,8 @@
 @import "styles/settings/variables";
 @import "styles/tools/mixins/import_once";
 
-@include import-once("components/CTAs/DeleteCTA") {
-  .delete-cta {
+@include import-once("components/CTAs/IconCTA") {
+  .icon-cta {
     align-items: center;
     background-color: var(--bg-color);
     border: 0.125rem solid var(--text-color);
@@ -22,11 +22,10 @@
     }
   }
 
-  .delete-cta__icon {
+  .icon-cta__icon {
     height: 1rem;
     width: 1rem;
-    path,
-    polygon {
+    path {
       fill: currentColor;
     }
   }
