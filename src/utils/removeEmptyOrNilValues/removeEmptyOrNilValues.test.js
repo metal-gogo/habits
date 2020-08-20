@@ -1,7 +1,7 @@
 import removeEmptyOrNilValues from './removeEmptyOrNilValues';
 
 describe('removeEmptyOrNilValues', () => {
-  test('removes all keys with undefined values from the object', () => {
+  it('removes all keys with undefined values from the object', () => {
     const objectToTest = {
       a: undefined,
       b: 'Something',
@@ -21,7 +21,7 @@ describe('removeEmptyOrNilValues', () => {
     expect(removeEmptyOrNilValues(objectToTest)).toEqual(expectedResult);
   });
 
-  test('removes all keys with null values from the object', () => {
+  it('removes all keys with null values from the object', () => {
     const objectToTest = {
       a: null,
       b: 'Something',
@@ -41,7 +41,7 @@ describe('removeEmptyOrNilValues', () => {
     expect(removeEmptyOrNilValues(objectToTest)).toEqual(expectedResult);
   });
 
-  test('removes all keys with empty strings values from the object', () => {
+  it('removes all keys with empty strings values from the object', () => {
     const objectToTest = {
       a: '',
       b: 'Something',
@@ -61,7 +61,7 @@ describe('removeEmptyOrNilValues', () => {
     expect(removeEmptyOrNilValues(objectToTest)).toEqual(expectedResult);
   });
 
-  test('removes all keys with empty object as values from the object', () => {
+  it('removes all keys with empty object as values from the object', () => {
     const objectToTest = {
       a: {},
       b: 'Something',
@@ -81,7 +81,7 @@ describe('removeEmptyOrNilValues', () => {
     expect(removeEmptyOrNilValues(objectToTest)).toEqual(expectedResult);
   });
 
-  test('removes all keys with empty nil values from the object, even on nested objects', () => {
+  it('removes all keys with empty nil values from the object, even on nested objects', () => {
     const objectToTest = {
       a: {
         a: undefined,
