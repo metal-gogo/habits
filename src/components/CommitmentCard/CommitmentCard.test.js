@@ -1,21 +1,31 @@
 import React from 'react';
 import { cleanup, render } from '@testing-library/react';
 
+import { deleteCommitment } from 'api/commitments';
+
 import CommitmentCard from './CommitmentCard';
+
+jest.mock('api/commitments');
 
 afterEach(() => {
   cleanup();
 });
 
+const getSampleCommitment = (
+  { isHabitCreationCommitment } = { isHabitCreationCommitment: true },
+) => ({
+  id: 'dummy_id',
+  title: 'Dummy title',
+  description: 'Dummy description',
+  isHabitCreationCommitment,
+});
+
 describe('components/CommitmentCard', () => {
-  test('Renders the CommitmentCard', () => {
-    const commitment = {
-      title: 'Dummy title',
-      description: 'Dummy description',
-      isHabitCreationCommitment: true,
-    };
+  it('renders the CommitmentCard', () => {
+    const commitment = getSampleCommitment();
     const { container } = render((
       <CommitmentCard
+        id={commitment.id}
         title={commitment.title}
         description={commitment.description}
         isHabitCreationCommitment={commitment.isHabitCreationCommitment}
@@ -25,14 +35,11 @@ describe('components/CommitmentCard', () => {
     expect(componentContainerElement.className).toMatch(/commitment-card/);
   });
 
-  test('Renders the CommitmentCard title', () => {
-    const commitment = {
-      title: 'Dummy title',
-      description: 'Dummy description',
-      isHabitCreationCommitment: true,
-    };
+  it('renders the title passed as prop', () => {
+    const commitment = getSampleCommitment();
     const { getByText } = render((
       <CommitmentCard
+        id={commitment.id}
         title={commitment.title}
         description={commitment.description}
         isHabitCreationCommitment={commitment.isHabitCreationCommitment}
@@ -42,14 +49,11 @@ describe('components/CommitmentCard', () => {
     expect(title).toBeInTheDocument();
   });
 
-  test('Renders the CommitmentCard description', () => {
-    const commitment = {
-      title: 'Dummy title',
-      description: 'Dummy description',
-      isHabitCreationCommitment: true,
-    };
+  it('renders the description passed as prop', () => {
+    const commitment = getSampleCommitment();
     const { getByText } = render((
       <CommitmentCard
+        id={commitment.id}
         title={commitment.title}
         description={commitment.description}
         isHabitCreationCommitment={commitment.isHabitCreationCommitment}
@@ -59,53 +63,73 @@ describe('components/CommitmentCard', () => {
     expect(description).toBeInTheDocument();
   });
 
-  test('Renders "Creating habit" if it receives `isHabitCreationCommitment = true` prop', () => {
-    const commitment = {
-      title: 'Dummy title',
-      description: 'Dummy description',
-      isHabitCreationCommitment: true,
-    };
+  it('renders "Making habit" if it receives `isHabitCreationCommitment = true` prop', () => {
+    const commitment = getSampleCommitment({ isHabitCreationCommitment: true });
     const { getByText } = render((
       <CommitmentCard
+        id={commitment.id}
         title={commitment.title}
         description={commitment.description}
         isHabitCreationCommitment={commitment.isHabitCreationCommitment}
       />
     ));
-    const description = getByText('Creating habit');
+    const description = getByText('Making habit');
     expect(description).toBeInTheDocument();
   });
 
-  test('Renders "Leaving habit" if it receives `isHabitCreationCommitment = false` prop', () => {
-    const commitment = {
-      title: 'Dummy title',
-      description: 'Dummy description',
-      isHabitCreationCommitment: false,
-    };
+  it('renders "Losing habit" if it receives `isHabitCreationCommitment = false` prop', () => {
+    const commitment = getSampleCommitment({ isHabitCreationCommitment: false });
     const { getByText } = render((
       <CommitmentCard
+        id={commitment.id}
         title={commitment.title}
         description={commitment.description}
         isHabitCreationCommitment={commitment.isHabitCreationCommitment}
       />
     ));
-    const description = getByText('Leaving habit');
+    const description = getByText('Losing habit');
     expect(description).toBeInTheDocument();
   });
 
-  test('Renders "Leaving habit" if it does not receive the `isHabitCreationCommitment` prop', () => {
-    const commitment = {
-      title: 'Dummy title',
-      description: 'Dummy description',
-    };
+  it('renders "Losing habit" if it does not receive the `isHabitCreationCommitment` prop', () => {
+    const commitment = getSampleCommitment();
     const { getByText } = render((
       <CommitmentCard
+        id={commitment.id}
+        title={commitment.title}
+        description={commitment.description}
+      />
+    ));
+    const description = getByText('Losing habit');
+    expect(description).toBeInTheDocument();
+  });
+
+  it('renders the DeleteCTA for this commitment card', () => {
+    const commitment = getSampleCommitment();
+    const { container } = render((
+      <CommitmentCard
+        id={commitment.id}
         title={commitment.title}
         description={commitment.description}
         isHabitCreationCommitment={commitment.isHabitCreationCommitment}
       />
     ));
-    const description = getByText('Leaving habit');
-    expect(description).toBeInTheDocument();
+    const deleteCTAElement = container.querySelector('button.delete-cta');
+    expect(deleteCTAElement).toBeInTheDocument();
+  });
+
+  it('calls the deleteCommitment method from the CommitmentsApi when the DeleteCTA is clicked', () => {
+    const commitment = getSampleCommitment();
+    const { container } = render((
+      <CommitmentCard
+        id={commitment.id}
+        title={commitment.title}
+        description={commitment.description}
+        isHabitCreationCommitment={commitment.isHabitCreationCommitment}
+      />
+    ));
+    const deleteCTAElement = container.querySelector('button.delete-cta');
+    deleteCTAElement.click();
+    expect(deleteCommitment).toHaveBeenCalledTimes(1);
   });
 });

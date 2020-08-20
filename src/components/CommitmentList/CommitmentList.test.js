@@ -8,7 +8,7 @@ afterEach(() => {
 });
 
 describe('components/CommitmentList', () => {
-  test('Renders the CommitmentList', () => {
+  it('renders the CommitmentList', () => {
     const commitments = [
       {
         id: 'dummy_id_1',
@@ -30,7 +30,7 @@ describe('components/CommitmentList', () => {
     expect(componentContainerElement.className).toMatch(/commitment-list/);
   });
 
-  test('Renders the CommitmentList empty space if there are no commitments', () => {
+  it('renders the CommitmentList empty space if there are no commitments', () => {
     const { container, getByText } = render((
       <CommitmentList />
     ));
