@@ -6,7 +6,7 @@
   .commitment-card {
     --bezel-color: var(--bg-color-90);
     --bezel-width: 1;
-    --bezel-radius: 16px 0 16px 0;
+    --bezel-radius: 0 0 24px 24px;
     --fill-type: filled;
     background-color: var(--bezel-color);
     display: flex;
@@ -22,9 +22,19 @@
     }
   }
 
+  .commitment-card__title {
+    max-width: calc(100% - 3.5rem);
+  }
+
   .commitment-card__commitment-type {
     bottom: 1rem;
     position: absolute;
     right: 1rem;
+  }
+
+  .commitment-card__delete-cta {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
   }
 }

@@ -12,6 +12,7 @@ const CommitmentList = ({ commitments }) => {
         commitments.map((commitment) => (
           <li className="commitment-list__item" key={commitment.id}>
             <CommitmentCard
+              id={commitment.id}
               title={commitment.title}
               description={commitment.description}
               isHabitCreationCommitment={commitment.isHabitCreationCommitment}

@@ -9,7 +9,7 @@ afterEach(() => {
   cleanup();
 });
 
-test('Renders the Fade Transition Router', () => {
+it('Renders the Fade Transition Router', () => {
   const { container } = render((
     <FadeTransitionRouter>
       <NotFound default />

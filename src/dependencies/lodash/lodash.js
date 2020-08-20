@@ -10,6 +10,7 @@ import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
 import mapValues from 'lodash/mapValues';
 import omitBy from 'lodash/omitBy';
+import sortBy from 'lodash/sortBy';
 /* eslint-enable import/no-extraneous-dependencies */
 
 export {
@@ -19,4 +20,5 @@ export {
   isString,
   mapValues,
   omitBy,
+  sortBy,
 };

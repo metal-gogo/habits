@@ -9,7 +9,7 @@ afterEach(() => {
 });
 
 describe('components/CTAs/DefaultCTA', () => {
-  test('Renders the DefaultCTA', () => {
+  it('renders the DefaultCTA', () => {
     const childrenText = 'Some dummy text';
     const { container } = render((
       <DefaultCTA type="button">{childrenText}</DefaultCTA>
@@ -18,7 +18,7 @@ describe('components/CTAs/DefaultCTA', () => {
     expect(componentContainerElement.className).toMatch(/default-cta/);
   });
 
-  test('Renders the text passed as children to the CTA', () => {
+  it('renders the text passed as children to the CTA', () => {
     const childrenText = 'Some dummy text';
     const { getByText } = render((
       <DefaultCTA type="button">{childrenText}</DefaultCTA>
@@ -27,7 +27,7 @@ describe('components/CTAs/DefaultCTA', () => {
     expect(ctaTextElement).toBeInTheDocument();
   });
 
-  test('Renders the component passed as children to the CTA', () => {
+  it('renders the component passed as children to the CTA', () => {
     const textInsideComponent = 'Some dummy component';
     const ChildrenComponent = () => (<>{textInsideComponent}</>);
     const { getByText } = render((
@@ -37,14 +37,14 @@ describe('components/CTAs/DefaultCTA', () => {
     expect(ctaTextElement).toBeInTheDocument();
   });
 
-  test('Calls the function passed as prop to the CTA', () => {
+  it('calls the function passed as prop to the CTA', () => {
     const onClick = jest.fn();
     const children = 'Some dummy text';
     const { getByRole } = render((
       <DefaultCTA type="button" onClick={onClick}>{children}</DefaultCTA>
     ));
-    const ctaTextButton = getByRole('button');
-    fireEvent.click(ctaTextButton);
+    const buttonElement = getByRole('button');
+    fireEvent.click(buttonElement);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 });
