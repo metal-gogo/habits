@@ -1,5 +1,5 @@
 const getLinkClassName = ({ isActive = false, className = '' } = { isActive: false, className: '' }) => {
-  const linkClassName = isActive ? `${className} link link__active` : `${className} link`;
+  const linkClassName = isActive ? `${className} link link--is-active` : `${className} link`;
   return {
     className: linkClassName,
   };

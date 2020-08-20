@@ -11,9 +11,9 @@ describe('router/Link/utils/getLinkClassName', () => {
     expect(linkClassName.className).toMatch(/link/);
   });
 
-  it('has the `link__active` class on the className property if the `isActive` argument is true', () => {
+  it('has the `link--is-active` class on the className property if the `isActive` argument is true', () => {
     const linkClassName = getLinkClassName({ isActive: true });
-    expect(linkClassName.className).toMatch(/link__active/);
+    expect(linkClassName.className).toMatch(/link--is-active/);
   });
 
   it('includes the className passed as argument on the className property', () => {
