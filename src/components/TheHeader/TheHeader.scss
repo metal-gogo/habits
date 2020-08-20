@@ -1,0 +1,76 @@
+@import "styles/settings/variables";
+@import "styles/tools/mixins/import_once";
+
+@include import-once("components/TheHeader") {
+  .the-header {
+    --bezel-color: var(--bg-color-90);
+    --bezel-width: 1;
+    --bezel-radius: 0 0 24px 24px;
+    --fill-type: filled;
+    background-color: var(--bezel-color);
+    display: flex;
+    padding: 0 2rem;
+
+    @supports (background: paint(id)) {
+      background-color: unset;
+      background-image: paint(bezel);
+    }
+  }
+
+  .the-header__logo-container {
+    align-items: center;
+    display: flex;
+    margin-right: auto;
+  }
+
+  .the-header__logo-placeholder {
+    margin-bottom: 0;
+  }
+
+  .the-header__navigation {
+    display: flex;
+  }
+
+  .the-header__navigation-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+  }
+
+  .the-header__navigation-item {
+    align-items: center;
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  .the-header__navigation-link {
+    align-items: center;
+    background-color: var(--transparent);
+    border: 0;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 1rem;
+    padding: 1.75rem 1rem;
+    transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out;
+
+    &:focus,
+    &:hover {
+      background-color: var(--primary);
+      border: 0;
+      color: $gunmetal;
+    }
+
+    &.link--is-active {
+      border-bottom: 0.1875rem solid var(--primary);
+      color: var(--white);
+      padding-bottom: calc(1.75rem - 0.1875rem);
+
+      &:focus,
+      &:hover {
+        color: $gunmetal;
+      }
+    }
+  }
+}

@@ -21,7 +21,7 @@
 .fade-enter-active {
   &.router {
     opacity: 1;
-    transition: opacity 150ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
   }
 }
 
@@ -35,6 +35,6 @@
 .fade-exit-active {
   &.router {
     opacity: 0;
-    transition: opacity 150ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
   }
 }

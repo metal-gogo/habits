@@ -16,9 +16,11 @@
     transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out;
     width: 2.5rem;
 
+    &:focus,
     &:hover {
-      background-color: var(--text-color);
-      color: var(--bg-color);
+      background-color: var(--primary);
+      color: $gunmetal;
+      outline: none;
     }
   }
 

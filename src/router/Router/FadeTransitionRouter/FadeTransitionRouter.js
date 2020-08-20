@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import './FadeTransitionRouter.scss';
 
-const transitionTimeout = 200;
+const transitionTimeout = 500;
 
 const FadeTransitionRouter = (props) => (
   <Location>

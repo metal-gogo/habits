@@ -36,7 +36,7 @@ const Dashboard = () => {
 
   return (
     <section className="page dashboard">
-      <h1 className="dashboard__title">Your commitments:</h1>
+      <h1 className="dashboard__title">My commitments:</h1>
       <CommitmentList commitments={commitments} />
     </section>
   );
