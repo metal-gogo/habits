@@ -9,7 +9,7 @@ afterEach(() => {
 });
 
 describe('components/CTAs/IconCTA', () => {
-  it('Renders the IconCTA', () => {
+  it('renders the IconCTA', () => {
     const { container } = render((
       <IconCTA iconName={ICON_TYPES[0]} />
     ));
@@ -17,7 +17,7 @@ describe('components/CTAs/IconCTA', () => {
     expect(componentContainerElement.className).toMatch(/icon-cta/);
   });
 
-  it('Renders an icon inside the CTA for all the ICON_TYPES', () => {
+  it('renders an icon inside the CTA for all the ICON_TYPES', () => {
     ICON_TYPES.forEach((iconType) => {
       const { container } = render((
         <IconCTA iconName={iconType} />
@@ -27,7 +27,7 @@ describe('components/CTAs/IconCTA', () => {
     });
   });
 
-  it('Calls the function passed as prop to the CTA', () => {
+  it('calls the function passed as prop to the CTA', () => {
     const onClick = jest.fn();
     const { getByRole } = render((
       <IconCTA onClick={onClick} iconName={ICON_TYPES[0]} />
