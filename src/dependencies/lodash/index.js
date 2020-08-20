@@ -5,4 +5,5 @@ export {
   isString,
   mapValues,
   omitBy,
+  sortBy,
 } from './lodash';
