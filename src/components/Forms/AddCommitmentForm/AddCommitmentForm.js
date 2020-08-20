@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { useForm } from 'dependencies/react-hook-form';
-import useNavigate from 'router/useNavigate';
 
 import { useAuth } from 'contexts/auth';
+
+import useNavigate from 'router/useNavigate';
 
 import * as CommitmentsApi from 'api/commitments';
 

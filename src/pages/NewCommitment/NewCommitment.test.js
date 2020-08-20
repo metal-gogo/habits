@@ -5,12 +5,13 @@ import NewCommitment from './NewCommitment';
 
 jest.mock('contexts/auth', () => ({
   useAuth: () => ({
-    logout: jest.fn(),
     user: {
       displayName: 'Dummy Display Name',
     },
   }),
 }));
+
+jest.mock('router/useNavigate', () => jest.fn());
 
 afterEach(() => {
   cleanup();
