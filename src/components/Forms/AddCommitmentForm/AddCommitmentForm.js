@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useForm } from 'dependencies/react-hook-form';
+import useNavigate from 'router/useNavigate';
 
 import { useAuth } from 'contexts/auth';
 
@@ -18,8 +19,8 @@ const AddCommitmentForm = () => {
     errors,
     handleSubmit,
     formState,
-    reset,
   } = useForm({ mode: 'onChange' });
+  const navigate = useNavigate();
   const { user } = useAuth();
 
   const showErrorOnFormMessage = formState.isSubmitted && !formState.isValid;
@@ -30,7 +31,7 @@ const AddCommitmentForm = () => {
       description: data.description,
       isHabitCreationCommitment: data.isHabitCreationCommitment,
     });
-    reset();
+    navigate('/', { replace: true });
   };
 
   return (

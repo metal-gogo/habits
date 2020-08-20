@@ -11,7 +11,7 @@ import './Dashboard.scss';
 import CommitmentList from 'components/CommitmentList';
 
 const Dashboard = () => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const [commitments, setCommitments] = useState([]);
 
   useEffect(() => {
@@ -38,7 +38,6 @@ const Dashboard = () => {
     <section className="page dashboard">
       <h1 className="dashboard__title">Your commitments:</h1>
       <CommitmentList commitments={commitments} />
-      <button onClick={logout} type="button">Log out</button>
     </section>
   );
 };
