@@ -1,0 +1,17 @@
+@import "styles/settings/variables";
+@import "styles/tools/mixins/import_once";
+@import "styles/tools/mixins/vh_100";
+
+@include import-once("pages/NewCommitment") {
+  .new-commitment {
+    @include vh-100;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .new-commitment__title {
+    align-self: flex-start;
+  }
+}
