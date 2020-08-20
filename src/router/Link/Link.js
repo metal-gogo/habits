@@ -7,7 +7,9 @@ import getLinkClassName from './utils/getLinkClassName';
 const Link = ({ isPartialLink, className, ...rest }) => {
   const renderPartialLink = () => (
     <ReachRouterLink
-      getProps={({ isPartiallyCurrent }) => getLinkClassName(isPartiallyCurrent, className)}
+      getProps={
+        ({ isPartiallyCurrent }) => getLinkClassName({ isActive: isPartiallyCurrent, className })
+      }
         // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     />
@@ -15,7 +17,7 @@ const Link = ({ isPartialLink, className, ...rest }) => {
 
   const renderExactLink = () => (
     <ReachRouterLink
-      getProps={({ isCurrent }) => getLinkClassName(isCurrent, className)}
+      getProps={({ isCurrent }) => getLinkClassName({ isActive: isCurrent, className })}
         // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     />
