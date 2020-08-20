@@ -9,7 +9,6 @@ import setVH100 from 'utils/setVH100/setVH100';
 import './Dashboard.scss';
 
 import CommitmentList from 'components/CommitmentList';
-import AddCommitmentForm from 'components/Forms/AddCommitmentForm';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -39,7 +38,6 @@ const Dashboard = () => {
     <section className="page dashboard">
       <h1 className="dashboard__title">Your commitments:</h1>
       <CommitmentList commitments={commitments} />
-      <AddCommitmentForm />
       <button onClick={logout} type="button">Log out</button>
     </section>
   );
