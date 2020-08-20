@@ -28,7 +28,8 @@ const Dashboard = () => {
           };
           fetchedCommitments.push(commitment);
         });
-        setCommitments(fetchedCommitments);
+        const sortedCommitments = CommitmentsApi.sortCommitments(fetchedCommitments);
+        setCommitments(sortedCommitments);
       });
 
     return () => unregisterCommitmentsObserver();
