@@ -16,5 +16,5 @@ it('Renders the Fade Transition Router', () => {
     </FadeTransitionRouter>
   ));
   const componentContainerElement = container.firstChild;
-  expect(componentContainerElement.className).toBe('fade-transition-router');
+  expect(componentContainerElement.className).toMatch(/fade-transition-router/);
 });
