@@ -5,9 +5,10 @@
 @include import-once("components/CommitmentList") {
   .commitment-list {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     margin: 0;
+    padding: 1rem 0;
   }
 
   .commitment-list__item {

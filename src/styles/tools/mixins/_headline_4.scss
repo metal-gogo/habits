@@ -5,7 +5,7 @@
 @mixin headline-4($color: var(--text-color)) {
   color: $color;
   display: flex;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: 0.015rem;
   line-height: 1.11;

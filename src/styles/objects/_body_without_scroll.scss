@@ -1,0 +1,15 @@
+@import "settings/variables";
+@import "tools/mixins/import_once";
+@import "tools/mixins/headline_1";
+@import "tools/mixins/headline_2";
+@import "tools/mixins/headline_3";
+@import "tools/mixins/headline_4";
+@import "tools/mixins/body_1";
+@import "tools/mixins/body_2";
+
+@include import-once("objects/body_without_scroll") {
+  .body--is-without-scroll {
+    overflow-y: hidden;
+    position: fixed;
+  }
+}

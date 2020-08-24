@@ -30,6 +30,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0; // Remove default body margin of 8px
+    max-width: 100%;
+    overflow-x: hidden;
     text-align: left; //Set an explicit initial text-align value so that we can later use the `inherit` value on things like `<th>` elements.
+    width: 100%;
   }
 }

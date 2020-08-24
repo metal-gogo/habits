@@ -4,7 +4,6 @@
 
 @include import-once("pages/Dashboard") {
   .dashboard {
-    @include vh-100($heightAdjustment: 4.8125rem);
     align-items: center;
     display: flex;
     flex-direction: column;
