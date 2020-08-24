@@ -38,7 +38,7 @@
   // causes specificity issues in many other styles that are too complex to fix.
   // See https://github.com/twbs/bootstrap/issues/19402
   a {
-    border-bottom: 0.125rem solid var(--transparent);
+    border-bottom: 0.125rem solid $transparent;
     color: inherit;
     cursor: pointer;
     text-decoration: none;

@@ -15,7 +15,7 @@
     line-height: 1.5; // Base line-height
     line-height: 1.15; // 2
     -ms-overflow-style: scrollbar; // 4
-    -webkit-tap-highlight-color: var(--transparent); // 5
+    -webkit-tap-highlight-color: $transparent; // 5
     text-size-adjust: 100%; // 3
   }
 
