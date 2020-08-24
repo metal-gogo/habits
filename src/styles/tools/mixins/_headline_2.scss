@@ -4,7 +4,7 @@
 /// @param {String} $color - color the font should take
 @mixin headline-2($color: var(--text-color)) {
   color: $color;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 1.5rem;
