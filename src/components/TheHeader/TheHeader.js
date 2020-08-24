@@ -46,12 +46,12 @@ const TheHeader = () => {
       <nav className={navigationClass}>
         <ul className="the-header__navigation-list">
           <li className="the-header__navigation-item">
-            <Link to="/" className="the-header__navigation-link">
+            <Link to="/" onClick={handleCloseMenuClick} className="the-header__navigation-link">
               My Commitments
             </Link>
           </li>
           <li className="the-header__navigation-item">
-            <Link to="new-commitment" className="the-header__navigation-link">
+            <Link to="new-commitment" onClick={handleCloseMenuClick} className="the-header__navigation-link">
               Create Commitment
             </Link>
           </li>
