@@ -10,7 +10,7 @@ const transitionTimeout = 500;
 const FadeTransitionRouter = (props) => (
   <Location>
     {({ location }) => (
-      <TransitionGroup className="fade-transition-router">
+      <TransitionGroup className={`fade-transition-router ${props.className}`}>
         <CSSTransition key={location.key} classNames="fade" timeout={transitionTimeout}>
           <Router location={location} className="router">
             {props.children}
@@ -26,6 +26,11 @@ FadeTransitionRouter.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  className: PropTypes.string,
+};
+
+FadeTransitionRouter.defaultProps = {
+  className: '',
 };
 
 export default FadeTransitionRouter;

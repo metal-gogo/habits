@@ -14,7 +14,9 @@
     font-weight: 400; // Base font-weight for everything
     line-height: 1.5; // Base line-height
     line-height: 1.15; // 2
+    max-width: 100%;
     -ms-overflow-style: scrollbar; // 4
+    overflow-x: hidden;
     -webkit-tap-highlight-color: $transparent; // 5
     text-size-adjust: 100%; // 3
   }
