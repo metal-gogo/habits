@@ -11,7 +11,7 @@ jest.mock('contexts/auth', () => ({
   }),
 }));
 
-jest.mock('router/useNavigate', () => jest.fn());
+jest.mock('dependencies/router/useNavigate', () => jest.fn());
 
 afterEach(() => {
   cleanup();

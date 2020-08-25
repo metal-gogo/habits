@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { useAuth } from 'contexts/auth';
 
-import Link from 'router/Link';
+import { Link } from 'dependencies/router';
 
 import IconCTA from 'components/CTAs/IconCTA';
 
