@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import Router from 'router/Router';
+import { Router } from 'dependencies/router';
 
 import setVH100 from 'utils/setVH100/setVH100';
 

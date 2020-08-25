@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
-import Router from 'router/Router';
-import Redirect from 'router/Redirect';
+import { Router, Redirect } from 'dependencies/router';
 
 import setVH100 from 'utils/setVH100/setVH100';
 
