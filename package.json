@@ -29,7 +29,7 @@
     "gitmoji-cli": "^3.2.10",
     "husky": "^4.2.5",
     "jest-environment-jsdom-sixteen": "^1.0.3",
-    "lint-staged": "^10.2.11",
+    "lint-staged": "^10.5.0",
     "prettier": "^2.0.5",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
